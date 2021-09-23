@@ -3,9 +3,13 @@ package com.educandoweb.springcourse.resources.exceptions;
 import java.io.Serializable;
 import java.time.Instant;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
+
 public class StandardError implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	@JsonFormat(shape = Shape.STRING, pattern = "dd-MM-yyy", timezone = "GMT")
 	private Instant timestamp;
 	private Integer status;
 	private String error;
